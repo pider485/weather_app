@@ -14,20 +14,30 @@
 <MainScreen>:
     MDBoxLayout:
         pos_hint: {"center_x": 0.5}
-        padding: "40sp"
         orientation: 'vertical'
         spacing: "20sp"
         MDBoxLayout:
-            size_hint: 1, None
-            orientation: 'horizontal'
+            pos_hint: {"center_x": 0.5}
+            padding: "40sp"
+            orientation: 'vertical'
             spacing: "20sp"
-            MDTextField:
-                hint_text: "Введіть місто"
-                mode: "round"
-            MDIconButton:
-                icon: "magnify"
-                theme_icon_color: "Custom"
-                icon_color:
-                md_bg_color: ("#0b6e08")
-        WeatherCard:
-            id: Weather_card
+            MDTopAppBar:
+                title: "My whiteApp"
+                left_action_items: [["menu", lambda x: app.callback()]]
+            MDBoxLayout:
+                size_hint: 1, None
+                orientation: 'horizontal'
+                spacing: "20sp"
+                MDTextField:
+                    id: city_field
+                    hint_text: "Введіть місто"
+                    mode: "round"
+                MDIconButton:
+                    id: search_btn
+                    icon: "magnify"
+                    theme_icon_color: "Custom"
+                    icon_color:
+                    md_bg_color: ("#0b6e08")
+                    on_press: root.weather_search()
+            WeatherCard:
+                id: Weather_card
