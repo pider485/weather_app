@@ -1,8 +1,15 @@
 <WeatherCard>
     padding: 4
-    size_hint: 1, 1
+    size_hint: 0.95, 1
     MDBoxLayout:
         orientation: 'vertical'
+        MDLabel:
+            id: date_text
+            text: "Зараз"
+            adaptive_size: True
+            color: "grey"
+            pos_hint:{"center_x":0.5}
+            font_style: 'Caption'
         MDLabel:
             id: desc_text
             text: "Сонячно"
